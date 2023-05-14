@@ -1,25 +1,45 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { ReactDOM } from "react";
+import Navbar from "./Components/NavBar.js"
+import "./style.css"
+import About from "./Components/About.js";
+import Section from "./Components/Section.js";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const section_data = [
+    {
+        title: "Games",
+        content:"In publishing and graphic design Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content.Lorem ipsum may be used as a placeholder before final copy is available. Wikipedia" 
+    },
+    {
+        title: "Sports",
+        content:"In publishing and graphic design Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content.Lorem ipsum may be used as a placeholder before final copy is available. Wikipedia" 
+    },
+    {
+        title: "Music",
+        content:"In publishing and graphic design Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content.Lorem ipsum may be used as a placeholder before final copy is available. Wikipedia" 
+    },
+
+]
+
+const App = () => {
+    return (
+        <div>
+            <Navbar />
+            <About>
+                <hr></hr>
+            </About>
+
+            {section_data.map((data) => (
+                    <Section 
+                    title={data.title}
+                    content={data.content}
+                >
+                    <hr></hr>
+                </Section>
+            ))}
+        </div>
+    )
 }
+
 
 export default App;
